@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Vue Custom Element</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/js/libs/vue.global.js"></script>
+
+    <script src="/js/components/awesome-component.js" type="module" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Vue Custom Element</h1>
+
+      <awesome-component name="Erik">
+        <ul slot="usp">
+          <li>We are so awesome</li>
+          <li>Are they all the same?</li>
+        </ul>
+        
+        What are we going to do tonight brain?
+      </awesome-component>
+      
+      <hr>
+
+      <awesome-component>Default slot data</awesome-component>
+    </div>    
+  </body>
+</html>
