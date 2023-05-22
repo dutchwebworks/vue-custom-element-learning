@@ -3,6 +3,8 @@
   <head>
     <title>Vue Custom Element</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="/css/style.css">
 
     <script src="/js/libs/vue.global.js"></script>
@@ -15,25 +17,34 @@
     <main class="wrapper">
       <h1>Vue Custom Element</h1>
 
-      <p>No build process required. Just one external JavaScript file for using <strong>Vue Web Components</strong> in an existing web site (as a widget).</p>
+      <h2>This demo web page illustrates a few things:</h2>
+
+      <ul>
+        <li>Two simple Vue Web Components below that require <strong>NO (frontend) build process</strong>. It's just 1 external JavaScript file that creates a (Vue) Web Component.</li>
+        <li>Native Web Components also support attribute- and (named) slot data</li>
+        <li>Web Components (when "closed") by default do NOT inherit or adhere to the CSS of their host page. Like an iFrame they have a closed scope.</li>
+        <li>This web page uses <strong>CSS Custom Properties</strong> for its colors</li>
+        <li>CSS Custom Properties <strong>DO natively propagate through to the Web Components that are on the web page</strong></li>
+        <li>This opens up a lot of <strong>possibilities for theming</strong> the Web Component</li>
+      </ul>
+
+      <p>
+        As you can see the HTML H2 heading elements are used both on this web page AND inside the two Vue Web Components below.
+        The HTML H2 elements inside the Vue Web Component don't share / "receive" any styling from the used external CSS file.
+      </p>
+
+      <p>Except for the CSS Custom Property that gives it color.</p>
 
       <h2>h2. Change color</h2>
 
-      <p>
-        The button below changes a <strong>CSS Custom Property</strong> used for color.
-        CSS Custom Properties do propagate through to Web Components.
-      </p>
+      <p>The button below uses JavaScript to change the value of the CSS color Custom Property set in the external CSS file.</p>
 
       <p><button id="toggleColor">Toggle color between pink and purple</button></p>
 
-      <p>
-        As you can see both the color of the main web page change as do the color inside the Vue Web Component.
-      </p>
+      <p>Inside the Vue Web Components below the CSS Custom Property (from the external CSS file) also colors the H2 headings.</p>
 
-      <div class="demo-block">Demo block of normal page flow</div>
-      
       <section class="widgets">
-        <awesome-component name="Erik">
+        <awesome-component name="Erik" class="widget">
           Slot data: some USP's below
           
           <ul slot="usp">
@@ -42,7 +53,7 @@
           </ul>        
         </awesome-component>       
         
-        <awesome-component>Default slot data</awesome-component>
+        <awesome-component class="widget">Default slot data</awesome-component>
       </section>
 
       <footer>
