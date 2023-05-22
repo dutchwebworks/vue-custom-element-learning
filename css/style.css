@@ -40,6 +40,7 @@ h1 {
 h2 {
     font-size: 2.441rem;
     color: var(--secondary-brand-color);
+    transition: color 2s;
 }
 
 h3, h4, h5, h6 {
@@ -82,4 +83,46 @@ img {
     margin-inline: auto;
     padding-inline: 20px;
     max-width: var(--site-max-width);
+}
+
+button {
+    cursor: pointer;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: var(--primary-brand-color);
+}
+
+.widgets {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-block-start: 40px;
+}
+
+footer {
+    border-top: 1px solid #333;
+    padding-block-start: 10px;
+    margin-block-start: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--gray-color);
+}
+
+footer a {
+    color: var(--secondary-brand-color);
+}
+
+.demo-block {
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--secondary-brand-color);
+    transition: background-color 2s;
+    display: flex;
+    font-size: 2rem;
+    justify-content: center;
+    align-self: center;
 }

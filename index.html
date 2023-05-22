@@ -12,21 +12,54 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   </head>
   <body>
-    <div class="wrapper">
+    <main class="wrapper">
       <h1>Vue Custom Element</h1>
 
-      <awesome-component name="Erik">
-        <ul slot="usp">
-          <li>We are so awesome</li>
-          <li>Are they all the same?</li>
-        </ul>
-        
-        What are we going to do tonight brain?
-      </awesome-component>
-      
-      <hr>
+      <p>No build process required. Just one external JavaScript file for using <strong>Vue Web Components</strong> in an existing web site (as a widget).</p>
 
-      <awesome-component>Default slot data</awesome-component>
-    </div>    
+      <h2>h2. Change color</h2>
+
+      <p>
+        The button below changes a <strong>CSS Custom Property</strong> used for color.
+        CSS Custom Properties do propagate through to Web Components.
+      </p>
+
+      <p><button id="toggleColor">Toggle color between pink and purple</button></p>
+
+      <p>
+        As you can see both the color of the main web page change as do the color inside the Vue Web Component.
+      </p>
+
+      <div class="demo-block">Demo block of normal page flow</div>
+      
+      <section class="widgets">
+        <awesome-component name="Erik">
+          Slot data: some USP's below
+          
+          <ul slot="usp">
+            <li>We are so awesome</li>
+            <li>Are they all the same?</li>
+          </ul>        
+        </awesome-component>       
+        
+        <awesome-component>Default slot data</awesome-component>
+      </section>
+
+      <footer>
+        &copy; Dutchwebworks, May 2023
+        <a href="https://github.com/dutchwebworks/vue-custom-element-learning" target="_blank">View on Github</a>
+      </footer>
+    </main>    
   </body>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      let cssColor = getComputedStyle(document.documentElement).getPropertyValue("--secondary-brand-color");
+  
+      document.getElementById("toggleColor").addEventListener("click", () => {
+        cssColor = (cssColor == "deeppink") ? "purple" : "deeppink";
+        document.documentElement.style.setProperty("--secondary-brand-color", cssColor);
+      });        
+    });    
+  </script>
 </html>

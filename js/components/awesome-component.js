@@ -1,10 +1,12 @@
 const { defineCustomElement } = Vue;
 
-customElements.define("awesome-component", defineCustomElement({
+customElements.define(
+  "awesome-component",
+  defineCustomElement({
     props: {
       name: {
         type: String,
-        default: "[nameless]",
+        default: "nameless",
       },
     },
     data() {
@@ -17,7 +19,8 @@ customElements.define("awesome-component", defineCustomElement({
         this.counter++;
       },
     },
-    styles: [`
+    styles: [
+      /* css */ `
       :host {
         display: block;
         border-radius: 10px;
@@ -26,15 +29,31 @@ customElements.define("awesome-component", defineCustomElement({
       }
 
       h2 {
+        font-family: Times, serif;
+        font-size: 1.5rem;
         color: var(--secondary-brand-color, green);
+        transition: color 2s;
       }
-    `],
-    template: `
+
+      button {
+        border: 0;
+        padding: 5px 10px;
+        background-color: var(--secondary-brand-color);
+        color: white;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 2s;
+      }
+    `,
+    ],
+    template: /* html */ `
       <div class="block">
-          <h2 class="block__heading">Hello, {{ name }}!</h2>
+        <p><strong>This is a Vue Web Component</strong></p>
+
+          <h2 class="block__heading">h2. Hello, {{ name }}!</h2>
 
           <div class="block__button">
-            <button @click="add()">click me!</button>
+            <button @click="add">Click me to increment!</button>
             {{counter}}  
           </div>
 
@@ -42,9 +61,9 @@ customElements.define("awesome-component", defineCustomElement({
             <slot />
           </div>
 
-          <footer>
-            <slot name="usp">Here come USP's</slot>
-          </footer>
+          <div>
+            <slot name="usp">Named slot usp</slot>
+          </div>
       </div>
     `,
   })
