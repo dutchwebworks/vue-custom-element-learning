@@ -53,7 +53,7 @@ customElements.define(
           <h2 class="block__heading">h2. Hello, {{ name }}!</h2>
 
           <div class="block__button">
-            <button @click="add">Click me to increment!</button>
+            <button @click="add">Click me to increment local state!</button>
             {{counter}}  
           </div>
 

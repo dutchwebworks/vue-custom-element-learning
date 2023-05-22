@@ -1,4 +1,10 @@
+/* Import custom font
+===================================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/* Custom Properties
+===================================== */
 
 :root {
     --primary-brand-color: deepskyblue;
@@ -9,6 +15,9 @@
     --primary-font: "Roboto", Helvetica, sans-serif;
     --site-max-width: 600px;
 }
+
+/* Basic global styling
+===================================== */
 
 body {
     margin: 0;
@@ -79,12 +88,6 @@ img {
     height: auto;
 }
 
-.wrapper {
-    margin-inline: auto;
-    padding-inline: 20px;
-    max-width: var(--site-max-width);
-}
-
 button {
     cursor: pointer;
     color: white;
@@ -92,26 +95,6 @@ button {
     padding: 10px 20px;
     border-radius: 10px;
     background-color: var(--primary-brand-color);
-}
-
-.widgets {
-    margin-block-start: 50px;
-}
-
-.widget {
-    margin-block-start: 20px;
-}
-
-@media (min-width: 768px) {
-    .widgets {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }
-
-    .widget {
-        margin-block-start: 0;
-    }
 }
 
 footer {
@@ -126,4 +109,36 @@ footer {
 
 footer a {
     color: var(--secondary-brand-color);
+}
+
+/* Page wrapper
+===================================== */
+
+.wrapper {
+    margin-inline: auto;
+    padding-inline: 20px;
+    max-width: var(--site-max-width);
+}
+
+/* Web componet widgets
+===================================== */
+
+@media (min-width: 768px) {
+    .widgets {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .widget {
+        margin-block-start: 0;
+    }
+}
+
+.widgets {
+    margin-block-start: 50px;
+}
+
+.widget {
+    margin-block-start: 20px;
 }
